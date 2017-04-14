@@ -1,19 +1,17 @@
 package AStar;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.PriorityQueue;
 
-public class AStar {
+public class AStar extends AbstractSearch{
 	
 	PriorityQueue<Node> queue = new PriorityQueue<>();
 	ArrayList<Node> explored = new ArrayList<>();
 	Node[][] grid; //flip x and y coordinate
-	Node startNode;
-	Node goalNode;
 	
 	public AStar(Node startNode, Node goalNode, int[][] map) {
-		this.startNode = startNode;
-		this.goalNode = goalNode;
+		super(startNode, goalNode);
 		grid = new Node[map.length][map.length];
 		
 		//sets up start and goal nodes

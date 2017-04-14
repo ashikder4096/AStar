@@ -1,12 +1,20 @@
 package AStar;
-
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 
+/**
+ * The Node class represents a station
+ * in this tutorial and will as such have
+ * a string representing the station's name.
+ * As well as an ArrayList of nodes that will store
+ * any instantiated nodes children.
+ */
 public class Node implements Comparable<Node>{
     private int posX, posY;
     private double disFromGoal, disFromStart, cost;
     private Node parent;
-    private ArrayList<Node> children;
+    private ArrayList<Node> children = new ArrayList<>(); 
+    
 	
 	public Node(int x, int y){
         posX = x;
@@ -53,15 +61,10 @@ public class Node implements Comparable<Node>{
 		this.parent = parent;
 	}
     
-    public void addChild(Node child)
+    public void addChild(Node child) //Used only to see if a node is connected in AStar
     {
     	children.add(child);
     }
-
-
-	public void setChildren(ArrayList<Node> children) {
-		this.children = children;
-	}
 
 	public ArrayList<Node> getChildren(){
     	return children;
